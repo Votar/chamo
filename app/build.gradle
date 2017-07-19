@@ -1,6 +1,16 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
+ext {
+    archLifecycleVersion = "1.0.0-alpha1"
+
+    retrofitVersion = '2.1.0'
+
+    okHttpVersion = '3.7.0'
+
+    anko_version= '0.10.1'
+}
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
@@ -13,9 +23,15 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", '"http://dev6.dump.dp.ua/"')
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField("String", "BASE_URL", '"http://dev6.dump.dp.ua/"')
         }
     }
 }
@@ -29,7 +45,29 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    //Coroutines
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.16"
+    compile "org.jetbrains.anko:anko-coroutines:$anko_version"
+
+
+    //Lifecycle
+    compile "android.arch.lifecycle:extensions:$archLifecycleVersion"
+    compile "android.arch.lifecycle:runtime:$archLifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$archLifecycleVersion"
+    //Network
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
 }
 repositories {
     mavenCentral()
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }

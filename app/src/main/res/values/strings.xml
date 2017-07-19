@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ICO</string>
+    <string name="er_default_network_error">Something goes wrong</string>
 </resources>
