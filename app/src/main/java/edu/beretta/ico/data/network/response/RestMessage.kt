@@ -1,9 +1,9 @@
-package edu.beretta.ico.network.models.response
+package edu.beretta.ico.data.network.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class Message(
+data class RestMessage(
         @SerializedName("id")
         @Expose
         var id: Int?,
@@ -18,10 +18,10 @@ data class Message(
         var type: Int?,
         @SerializedName("from")
         @Expose
-        var from: User?,
+        var from: RestUser?,
 //        @SerializedName("data")
 //        @Expose
-//        var data: AudioData?,
+//        var data: RestAudioData?,
         @SerializedName("date")
         @Expose
         var date: Int?

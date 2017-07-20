@@ -1,9 +1,9 @@
-package edu.beretta.ico.network.models.response
+package edu.beretta.ico.data.network.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class AudioData(
+data class RestAudioData(
     @SerializedName("url")
     var url: String?,
     @SerializedName("act")

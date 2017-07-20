@@ -1,9 +1,9 @@
-package edu.beretta.ico.network.models.response
+package edu.beretta.ico.data.network.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class Sport(
+data class RestSport(
     @SerializedName("id")
     @Expose
     var id: Int?,

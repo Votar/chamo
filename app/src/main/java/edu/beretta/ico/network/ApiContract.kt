@@ -1,4 +1,4 @@
-package edu.beretta.ico.network.models
+package edu.beretta.ico.network
 
 
 object ApiContract {

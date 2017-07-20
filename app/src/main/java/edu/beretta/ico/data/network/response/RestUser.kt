@@ -1,9 +1,8 @@
-package edu.beretta.ico.network.models.response
+package edu.beretta.ico.data.network.response
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class User
+data class RestUser
 (
         @SerializedName("id")
         var id: Int?,
@@ -15,10 +14,10 @@ data class User
         var lastActivity: Any?,
 
         @SerializedName("sports")
-        var sports: List<Sport>?,
+        var sports: List<RestSport>?,
 
         @SerializedName("posts")
-        var posts: List<Post>?,
+        var posts: List<RestPost>?,
 
         @SerializedName("image")
         var image: String?

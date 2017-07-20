@@ -1,9 +1,9 @@
-package edu.beretta.ico.network.models.response
+package edu.beretta.ico.data.network.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class LastMessage(
+data class RestLastMessage(
         @SerializedName("type")
         @Expose
         var type: Int?,
@@ -12,6 +12,6 @@ data class LastMessage(
         var requestId: String?,
         @SerializedName("message")
         @Expose
-        var message: Message?
+        var message: RestMessage?
 ) {
 }

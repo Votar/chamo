@@ -5,10 +5,12 @@ import edu.beretta.ico.arch.viewmodel.IBaseViewModel
 
 
 interface ChatListContract {
-    interface View: IBaseArchView{
-
+    interface View : IBaseArchView {
+        fun showProgress()
+        fun hideProgress()
     }
-    interface ViewModel : IBaseViewModel<View>{
+
+    interface ViewModel : IBaseViewModel<View> {
         fun refreshChats()
 
     }

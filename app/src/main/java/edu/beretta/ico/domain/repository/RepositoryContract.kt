@@ -1,7 +1,7 @@
 package edu.beretta.ico.domain.repository
 
 
-interface RepositoryContract<T : Object> {
+interface RepositoryContract<T : Any> {
 
     abstract fun insert(model: T)
 

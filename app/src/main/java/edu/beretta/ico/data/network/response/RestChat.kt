@@ -1,10 +1,10 @@
-package edu.beretta.ico.network.models.response
+package edu.beretta.ico.data.network.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class RestChat(@SerializedName("id")
-                    var id: Int?,
+                    var id: Long?,
                     @SerializedName("title")
                     var title: String?,
                     @SerializedName("status")
@@ -16,16 +16,16 @@ data class RestChat(@SerializedName("id")
                     @SerializedName("created")
                     var created: Int?,
                     @SerializedName("author")
-                    var author: Int?,
+                    var author: Long?,
                     @SerializedName("image")
                     var image: String?,
                     @SerializedName("unread")
                     var unread: Int?,
                     @SerializedName("users")
-                    var users: List<User>?,
+                    var users: List<RestUser>?,
                     @SerializedName("last_message")
                     @Expose
-                    var lastMessage: LastMessage?
+                    var lastMessage: RestLastMessage?
 ) {
 
 

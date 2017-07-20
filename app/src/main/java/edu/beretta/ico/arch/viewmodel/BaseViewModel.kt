@@ -2,7 +2,6 @@ package edu.beretta.ico.arch.viewmodel
 
 import android.arch.lifecycle.ViewModel
 import edu.beretta.ico.arch.view.IBaseArchView
-import edu.beretta.ico.arch.viewmodel.IBaseViewModel
 
 
 class BaseViewModel : ViewModel(), IBaseViewModel<IBaseArchView> {

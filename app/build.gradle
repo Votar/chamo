@@ -1,8 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'realm-android'
+
 
 ext {
+
+    supportLibraryVersion = '25.3.1'
+
     archLifecycleVersion = "1.0.0-alpha1"
 
     retrofitVersion = '2.1.0'
@@ -43,6 +48,8 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "com.android.support:recyclerview-v7:26.+"
+
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
@@ -58,6 +65,7 @@ dependencies {
     //Network
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile 'com.google.code.gson:gson:2.8.0'
 
     compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
