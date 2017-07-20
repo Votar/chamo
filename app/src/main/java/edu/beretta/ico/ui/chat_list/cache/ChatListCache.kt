@@ -4,9 +4,21 @@ import edu.beretta.ico.data.network.response.RestChat
 import edu.beretta.ico.data.storage.StorageImpl
 import edu.beretta.ico.data.storage.models.RealmChat
 import edu.beretta.ico.ui.chat_list.converters.toRealmChat
+import java.util.*
 
 
-class ChatListCache {
+class ChatListCache(useColdCache: Boolean) {
+    val EXPIRE_TIME = 10 * 60 * 1000 // 10 min
+    var lastUpdate: Long
+
+    init {
+        //TODO : Find solution to store lastUpdate time without preferences
+        if (useColdCache)
+            lastUpdate = Calendar.getInstance().timeInMillis
+        else
+            lastUpdate = -1
+    }
+
     fun isCached(): Boolean {
         val realm = StorageImpl.getRealm()
         val realmResult = realm.where(RealmChat::class.java).findAll()
@@ -14,10 +26,9 @@ class ChatListCache {
     }
 
     fun isExpired(): Boolean {
-        return true
+        val currentTime = Calendar.getInstance().timeInMillis
+        return (currentTime - lastUpdate > EXPIRE_TIME)
     }
-
-    var lastUpdate: Long? = null
 
 
     fun get(): List<RealmChat> {
@@ -52,6 +63,8 @@ class ChatListCache {
                 db.insert(it)
             }
         }
+
+        lastUpdate = Calendar.getInstance().timeInMillis
         realm.close()
     }
 }

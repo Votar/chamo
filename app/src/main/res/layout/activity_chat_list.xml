@@ -2,11 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/a_chat_list_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/a_chat_list_root"
     tools:context="edu.beretta.ico.ui.chat_list.ChatListActivity">
 
-   
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/a_chat_list_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/a_chat_list_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 
 </RelativeLayout>
